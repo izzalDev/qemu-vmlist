@@ -1,0 +1,199 @@
+# Created by https://www.toptal.com/developers/gitignore/api/macos
+# Edit at https://www.toptal.com/developers/gitignore?templates=macos
+
+### macOS ###
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+### macOS Patch ###
+# iCloud generated files
+*.icloud
+
+# End of https://www.toptal.com/developers/gitignore/api/macos
+
+# Created by https://www.toptal.com/developers/gitignore/api/linux
+# Edit at https://www.toptal.com/developers/gitignore?templates=linux
+
+### Linux ###
+*~
+
+# temporary files which can be created if a process still has a handle open of a deleted file
+.fuse_hidden*
+
+# KDE directory preferences
+.directory
+
+# Linux trash folder which might appear on any partition or disk
+.Trash-*
+
+# .nfs files are created when an open file is removed but is still being accessed
+.nfs*
+
+# End of https://www.toptal.com/developers/gitignore/api/linux
+
+# Created by https://www.toptal.com/developers/gitignore/api/windows
+# Edit at https://www.toptal.com/developers/gitignore?templates=windows
+
+### Windows ###
+# Windows thumbnail cache files
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+
+# Dump file
+*.stackdump
+
+# Folder config file
+[Dd]esktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# End of https://www.toptal.com/developers/gitignore/api/windows
+
+# Created by https://www.toptal.com/developers/gitignore/api/archives
+# Edit at https://www.toptal.com/developers/gitignore?templates=archives
+
+### Archives ###
+# It's better to unpack these files and commit the raw source because
+# git has its own built in compression methods.
+*.7z
+*.jar
+*.rar
+*.zip
+*.gz
+*.gzip
+*.tgz
+*.bzip
+*.bzip2
+*.bz2
+*.xz
+*.lzma
+*.cab
+*.xar
+
+# Packing-only formats
+*.iso
+*.tar
+
+# Package management formats
+*.dmg
+*.xpi
+*.gem
+*.egg
+*.deb
+*.rpm
+*.msi
+*.msm
+*.msp
+*.txz
+
+# End of https://www.toptal.com/developers/gitignore/api/archives
+
+# Created by https://www.toptal.com/developers/gitignore/api/vivado
+# Edit at https://www.toptal.com/developers/gitignore?templates=vivado
+
+### Vivado ###
+#########################################################################################################
+##	This is an example .gitignore file for Vivado, please treat it as an example as
+##	it might not be complete. In addition, XAPP 1165 should be followed.
+#########
+#Exclude all
+*
+!*/
+!.gitignore
+###########################################################################
+##	VIVADO
+#Source files:
+#Do NOT ignore VHDL, Verilog, block diagrams or EDIF files.
+!*.vhd
+!*.v
+!*.sv
+!*.bd
+!*.edif
+#IP files
+#.xci: synthesis and implemented not possible - you need to return back to the previous version to generate output products
+#.xci + .dcp: implementation possible but not re-synthesis
+#*.xci(www.spiritconsortium.org)
+!*.xci
+#.xcix: Core container file
+#.xcix: https://www.xilinx.com/support/documentation/sw_manuals/xilinx2016_2/ug896-vivado-ip.pdf (Page 41)
+!*.xcix
+#*.dcp(checkpoint files)
+!*.dcp
+!*.vds
+!*.pb
+#All bd comments and layout coordinates are stored within .ui
+!*.ui
+!*.ooc
+#System Generator
+!*.mdl
+!*.slx
+!*.bxml
+#Simulation logic analyzer
+!*.wcfg
+!*.coe
+#MIG
+!*.prj
+!*.mem
+#Project files
+#XPR  +  *.XML ? XPR (Files are merged into a single XPR file for 2014.1 version)
+#Do NOT ignore *.xpr files
+!*.xpr
+#Include *.xml files for 2013.4 or earlier version
+!*.xml
+#Constraint files
+#Do NOT ignore *.xdc files
+!*.xdc
+#TCL - files
+!*.tcl
+#Journal - files
+!*.jou
+#Reports
+!*.rpt
+!*.txt
+!*.vdi
+#C-files
+!*.c
+!*.h
+!*.elf
+!*.bmm
+!*.xmp
+
+# End of https://www.toptal.com/developers/gitignore/api/vivado
+

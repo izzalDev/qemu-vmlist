@@ -1,0 +1,17 @@
+vm_name: Alpine Server aarch64
+architecture: aarch64  
+memory: 1G  
+cpu_cores: 2  
+display: cirrus  
+virtual_storages:
+  - file: ./resources/storage/alphine-server.vdi
+    size: "10G"  
+network:
+  - type: user  
+  - type: tap
+rom:
+  file: ./resources/rom/
+  url: http://url/to/rom/file 
+iso:
+  file: /path/to/iso/file  
+  url: http://url/to/iso/file  

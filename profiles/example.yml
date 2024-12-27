@@ -1,0 +1,58 @@
+# Konfigurasi Virtual Machine
+# Bagian ini mengonfigurasi parameter dasar dari mesin virtual, termasuk nama, arsitektur,
+# memori, dan jumlah core CPU yang digunakan. Memastikan VM dapat berjalan dengan spesifikasi yang diinginkan.
+# Anda dapat menambahkan argumen tambahan seperti pengaturan `cpu_model`, `smp`, atau opsi lain yang relevan.
+vm_name: Alpine Linux  
+architecture: aarch64  
+memory: 1G  
+cpu_cores: 2  
+display: cirrus  
+
+# Konfigurasi Penyimpanan Virtual
+# Bagian ini mendefinisikan disk virtual yang akan digunakan oleh VM. Anda dapat menentukan beberapa
+# disk dengan berbagai ukuran dan jenis format. Penyimpanan ini bisa berupa disk virtual baru atau yang sudah ada.
+# Anda juga dapat menambahkan opsi `format` untuk menentukan format disk seperti `qcow2` atau `raw`, 
+# atau opsi `cache` untuk memilih strategi caching.
+virtual_storages:
+  - file: /path/to/image/file.vdi  
+    size: "10G"  
+  - file: /path/to/image/file2.vdi  
+    size: "23G"  
+
+# Konfigurasi Jaringan
+# Bagian ini mengonfigurasi mode jaringan untuk VM. QEMU mendukung beberapa mode jaringan seperti NAT (User Mode),
+# TAP, dan Socket. Anda dapat memilih mode yang sesuai berdasarkan kebutuhan komunikasi antara VM, host, atau
+# jaringan eksternal. Anda juga dapat menambahkan opsi seperti `macaddr` untuk menetapkan alamat MAC khusus atau 
+# `vlan` untuk konfigurasi jaringan virtual.
+network:
+  # Mode 'user' memungkinkan VM untuk mengakses internet melalui NAT. Ini adalah pilihan sederhana untuk VM
+  # yang membutuhkan akses internet tetapi tidak membutuhkan koneksi langsung ke jaringan fisik.
+  - type: user  
+    subnet: 10.0.2.0/24  
+    dhcp_start: 10.0.2.15  
+    dns: 10.0.2.3  
+    smb: 10.0.2.4  
+  # Mode 'tap' memungkinkan VM untuk terhubung langsung ke jaringan fisik melalui bridging. Berguna untuk VM
+  # yang membutuhkan koneksi langsung ke LAN atau jaringan fisik.
+  - type: tap  
+  # Mode socket memungkinkan komunikasi langsung antar VM melalui socket TCP/IP. Ini digunakan untuk komunikasi
+  # antara VM dalam satu mesin atau antara VM yang berjalan di mesin berbeda.
+  - type: socket  
+    listen: 2234  
+  - type: socket  
+    connect: 127.0.0.1:2234  
+
+# Konfigurasi ROM
+# Bagian ini digunakan untuk menyediakan file ROM yang digunakan oleh VM saat booting. File ROM ini dapat berupa
+# firmware atau perangkat lainnya yang digunakan oleh sistem tamu. ROM bisa diperlukan untuk firmware tertentu
+# atau untuk booting perangkat keras virtual. Anda bisa menambahkan opsi `bios` untuk menentukan BIOS khusus.
+rom:  # opsional
+  file: /path/to/rom/file  
+  url: http://url/to/rom/file  
+
+# Konfigurasi ISO
+# Bagian ini digunakan untuk mengonfigurasi file ISO yang akan digunakan oleh VM. ISO biasanya digunakan untuk
+# menginstal sistem operasi atau menjalankan live CD dalam VM. ISO dapat dimuat secara lokal atau diunduh melalui URL.
+iso:
+  file: /path/to/iso/file  
+  url: http://url/to/iso/file  

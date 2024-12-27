@@ -1,0 +1,25 @@
+SCRIPTS_DIR := scripts
+PROFILE_DIR := profiles
+ISO_DIR := resources/iso
+VDI_DIR := resources/storage
+
+# $(SCRIPTS_DIR)/%.sh: $(PROFILE_DIR)/%.yml
+
+# %.iso: $(PROFILE_DIR)/%.yml
+
+
+
+%.vdi:
+@echo "Membuat disk image $@"
+@qemu-img create -f vdi $@ 100M
+
+
+# %: $(SCRIPTS_DIR)/%.sh %.vdi %.iso %.yml
+
+
+# clean:
+
+
+
+.PHONY: clean
+.PRECIOUS: $(SCRIPTS_DIR)/%.sh
